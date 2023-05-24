@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\DataTypeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EntityController;
+use App\Http\Controllers\SystemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +30,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+Route::resource('entities', EntityController::class);
+Route::resource('attributes', AttributeController::class);
+Route::resource('systems', SystemController::class);
+// Route::resource('datatypes', DataTypeController::class);

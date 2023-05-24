@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('entities', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('system_id');
-
-            $table->foreign('system_id')->references('id')->on('systems');
-            $table->timestamps();
+        Schema::table('data_types', function (Blueprint $table) {
+            $table->integer('int_flag')->default('0');
+            $table->integer('string_flag')->default('0');
+            $table->integer('float_flag')->default('0');
+            $table->integer('date_flag')->default('0');
         });
     }
 
@@ -30,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entities');
+        Schema::table('data_types', function (Blueprint $table) {
+            //
+        });
     }
 };
