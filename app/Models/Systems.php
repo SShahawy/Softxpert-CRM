@@ -5,13 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Roles extends Model
+class Systems extends Model
 {
-    use HasFactory;
-
-    public function users()
+    public function entities()
     {
-        return $this->hasMany('User');
+        return $this->belongsTo('App\Models\Entities');
     }
 
     protected $fillable = [

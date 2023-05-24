@@ -13,12 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('entities', function (Blueprint $table) {
+        Schema::create('attributes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('system_id');
+            $table->unsignedBigInteger('entities_id');
 
-            $table->foreign('system_id')->references('id')->on('systems');
+            $table->unsignedBigInteger('datatype_id');
+
+            $table->foreign('entities_id')->references('id')->on('entities');
+            $table->foreign('datatype_id')->references('id')->on('data_types');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entities');
+        Schema::dropIfExists('attributes');
     }
 };
