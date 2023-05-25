@@ -4,6 +4,7 @@
           {{ __('Attribute Create') }}
       </h2>
   </x-slot>
+
   <div class="py-12">
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
@@ -12,7 +13,7 @@
                       @csrf
                       <div class="mb-6">
                           <label class="block">
-                              <span class="text-gray-700">Attribute Name</span>
+                              <span class="text-gray-700">Entity Name</span>
                               <input type="text" name="name"
                                   class="block w-full @error('name') border-red-500 @enderror mt-1 rounded-md"
                                   placeholder="" value="{{old('name')}}" />
@@ -28,6 +29,7 @@
                                 @foreach($entities as $entity)
                                 <option value="{{ $entity->id }}">
                                   {{$entity->name}}
+
                                 </option>
                                 @endforeach
                               </select>
@@ -35,14 +37,16 @@
                                   class="block w-full @error('slug') border-red-500 @enderror mt-1 rounded-md"
                                   placeholder="" value="{{old('slug')}}" /> --}}
                           </label>
+                          
                       </div>
                       <div class="mb-6">
                         <label class="block">
-                            <span class="text-gray-700">Data Type</span>
+                            <span class="text-gray-700">Data</span>
                             <select name="datatype_id" id="" class="block w-full mt-1 rounded-md">
                               @foreach($datatypes as $datatype)
                               <option value="{{ $datatype->id }}">
                                 {{$datatype->type}}
+
                               </option>
                               @endforeach
                             </select>
@@ -50,9 +54,11 @@
                                 class="block w-full @error('slug') border-red-500 @enderror mt-1 rounded-md"
                                 placeholder="" value="{{old('slug')}}" /> --}}
                         </label>
+                        
                     </div>
                       <button type="submit"
                           class=" bg-blue-600  rounded text-sm px-5 py-2.5">Submit</button>
+
                   </form>
               </div>
           </div>

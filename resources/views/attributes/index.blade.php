@@ -22,7 +22,10 @@
                                       #
                                   </th>
                                   <th scope="col" class="px-6 py-3">
-                                      Category Name
+                                      Attribute
+                                  </th>
+                                  <th scope="col" class="px-6 py-3">
+                                      Type
                                   </th>
                                   <th scope="col" class="px-6 py-3">
                                       Entity
@@ -50,6 +53,10 @@
 
                                   </td>
                                   <td class="px-6 py-4">
+                                      {{$attribute->datatype()->get('type')[0]->type}}
+
+                                  </td>
+                                  <td class="px-6 py-4">
                                     {{ $attribute->entities()->get('name')[0]->name }}
                                 </td>
                                 {{-- @dd($attribute->entities()->get('system_id')[0]->system_id) --}}
@@ -74,6 +81,7 @@
                               @endforeach
                           </tbody>
                       </table>
+                      {{ $attributes->links() }}
                   </div>
 
               </div>

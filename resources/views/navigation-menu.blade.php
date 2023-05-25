@@ -1,3 +1,71 @@
+<style>.navbar {
+    overflow: hidden;
+    background-color: #333;
+    font-family: Arial;
+  }
+  
+  /* Links inside the navbar */
+  .navbar a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: black;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: red;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }</style>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -15,7 +83,42 @@
                     <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <div class="dropdown">
+                        <button class="dropbtn">System &DownArrow;
+                          <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                          <a href="/systems">R</a>
+                          <a href="/systems/create">C</a>
+                        </div>
                 </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Entities &DownArrow;
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="/entities">R</a>
+                      <a href="/entities/create">C</a>
+                    </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Attributes &DownArrow;
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/attributes">R</a>
+                  <a href="/attributes/create">C</a>
+                </div>
+        </div>
+            <div class="dropdown">
+                <button class="dropbtn">Data &DownArrow;
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/entity_data">R</a>
+                </div>
+        </div>
+        
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -141,6 +244,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
