@@ -9,7 +9,7 @@
       <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
-                  <form method="POST" action="{{ route('entities.update',$entity->id) }}">
+                  <form method="POST" action="{{ route('entity_data.update',$entity->id) }}">
                       @csrf
                       @method('put')
                       <div class="mb-6">
@@ -17,7 +17,7 @@
                               <span class="text-gray-700">Entity Name</span>
                               <input type="text" name="name"
                                   class="block w-full @error('name') border-red-500 @enderror mt-1 rounded-md"
-                                  placeholder="" value="{{old('name',$entity->name)}}" />
+                                  placeholder="" value="{{old('name',$entity->data)}}" />
                           </label>
                           @error('name')
                           <div class="text-sm text-red-600">{{ $message }}</div>

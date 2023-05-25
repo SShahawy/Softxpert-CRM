@@ -99,7 +99,8 @@ class EntityDataController extends Controller
      */
     public function edit($id)
     {
-        //
+        $entity = $this->entityDataRepository->findEntityData($id);
+        return view('entities_data.edit', compact('entity'));
     }
 
     /**
@@ -111,7 +112,13 @@ class EntityDataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $this->entityDataRepository->updateEntityData($request->all(), $id);
+
+        return redirect()->route('entities.index')->with('message', 'Entity Updated Successfully');
     }
 
     /**
@@ -122,6 +129,8 @@ class EntityDataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->entityDataRepository->destroyEntityData($id);
+
+        return redirect()->route('entity_data.index')->with('status', 'Entity Delete Successfully');
     }
 }

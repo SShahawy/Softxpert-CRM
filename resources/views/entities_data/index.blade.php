@@ -59,10 +59,10 @@
                                     {{ $entity->entity()->get('name')[0]->name }}
                                   </td>
                                   <td class="px-6 py-4">
-                                      <a href="{{ route('entities.edit',$entity->id) }}">Edit</a>
+                                      <a href="{{ route('entity_data.edit',$entity->id) }}">Edit</a>
                                   </td>
                                   <td class="px-6 py-4">
-                                      <form action="{{ route('entities.destroy',$entity->id) }}" method="POST"
+                                      <form action="{{ route('entity_data.destroy',$entity->id) }}" method="POST"
                                           onsubmit="return confirm('{{ trans('Whyyyy are you deleting ? ') }}');"
                                           style="display: inline-block;">
                                           <input type="hidden" name="_method" value="DELETE">

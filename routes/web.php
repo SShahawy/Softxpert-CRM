@@ -35,7 +35,7 @@ Route::resource('entities', EntityController::class);
 // Route::resource('entity_data', EntityDataController::class);
 Route::resource('attributes', AttributeController::class);
 Route::resource('systems', SystemController::class);
-Route::resource('entity_data', EntityDataController::class)->only('index', 'store');
+Route::resource('entity_data', EntityDataController::class)->only('index', 'store', 'edit', 'destroy', 'update');
 Route::get('entity_data/{id}', [EntityDataController::class, 'create'])->name('entity_data.create');
 
 Route::post('/load-entity-data-by-entity', [EntityDataController::class, 'loadEntityDataByEntity'])->name('loadEntityDataByEntity');
