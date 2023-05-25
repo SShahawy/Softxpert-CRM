@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AttributeData;
+use App\Repositories\Interfaces\AttributeDataRepositoryInterface;
 use Illuminate\Http\Request;
 
 class AttributeDataController extends Controller
 {
+    private $attributedataRepository;
+
+    public function __construct(AttributeDataRepositoryInterface $attributedataRepository)
+    {
+        $this->attributedataRepository = $attributedataRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -45,7 +53,9 @@ class AttributeDataController extends Controller
      */
     public function show($id)
     {
-        //
+        $system = $this->attributedataRepository->findAttributeData($id);
+        $attributes = AttributeData::where('entity_id', $system->id)->get();
+        return view('systems.show', compact('system', 'attributes'));
     }
 
     /**

@@ -13,8 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('attribute_data', function (Blueprint $table) {
+
+        Schema::create('entity_data', function (Blueprint $table) {
             $table->id();
+            $table->string('data');
+            $table->unsignedBigInteger('entity_id');
+            $table->unsignedBigInteger('attribute_id');
+            $table->foreign('entity_id')->references('id')->on('entities');
+
+            $table->foreign('attribute_id')->references('id')->on('attributes');
             $table->timestamps();
         });
     }
@@ -26,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attribute_data');
+        Schema::dropIfExists('entity_data');
     }
 };

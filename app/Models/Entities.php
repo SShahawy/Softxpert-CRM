@@ -10,6 +10,12 @@ use App\Models\Systems;
 class Entities extends Model
 {
     use HasFactory;
+
+    public function entity_data()
+    {
+        return $this->hasMany('App\Models\Entities');
+    }
+
     public function system()
     {
         return $this->belongsTo('App\Models\Systems');

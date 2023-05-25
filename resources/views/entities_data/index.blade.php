@@ -22,38 +22,41 @@
                                       #
                                   </th>
                                   <th scope="col" class="px-6 py-3">
-                                      Category Name
-                                  </th>
+                                    Attribute Name
+                                </th>
                                   <th scope="col" class="px-6 py-3">
-                                      System
+                                    Data
+                                </th>
+                                  
+                                  <th scope="col" class="px-6 py-3">
+                                      Entity
                                   </th>
+                                  
                                   <th scope="col" class="px-6 py-3">
                                       Edit
                                   </th>
                                   <th scope="col" class="px-6 py-3">
                                       Delete
                                   </th>
-                                  <th scope="col" class="px-6 py-3">
-                                      Add
-                                  </th>
                               </tr>
                           </thead>
                           <tbody>
-                              @foreach ($entities as $entity)
+                              @foreach ($entity_data as $entity)
                               <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                   <th scope="row"
                                       class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                       {{$entity->id}}
                                   </th>
                                   <td class="px-6 py-4">
-                                      {{$entity->name}}
-
+                                    {{ $entity->attribute()->get('name')[0]->name }}
                                   </td>
-                                  
-
                                   <td class="px-6 py-4">
-                                      {{$entity->system()->get('name')[0]->name}}
+                                    {{$entity->data}}
 
+                                </td>
+                                
+                                  <td class="px-6 py-4">
+                                    {{ $entity->entity()->get('name')[0]->name }}
                                   </td>
                                   <td class="px-6 py-4">
                                       <a href="{{ route('entities.edit',$entity->id) }}">Edit</a>
@@ -67,15 +70,12 @@
                                           <input type="submit" class="px-4 py-2 text-white bg-red-700 rounded"
                                               value="Delete">
                                       </form>
-                                      
                                   </td>
-                                  <td class="px-6 py-4">
-                                    <a href="{{ route('entity_data.create',$entity->id) }}">Add</a>
-                                </td>
                               </tr>
                               @endforeach
                           </tbody>
                       </table>
+                      {{ $entity_data->links() }}
                   </div>
 
               </div>

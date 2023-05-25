@@ -9,6 +9,12 @@ use App\Models\Entities;
 class Attributes extends Model
 {
     use HasFactory;
+
+    public function entity_data()
+    {
+        return $this->hasMany('App\Models\EntityData');
+    }
+
     public function entities()
     {
         return $this->belongsTo('App\Models\Entities');
@@ -19,7 +25,7 @@ class Attributes extends Model
     }
     public function datatype()
     {
-        return $this->hasOne('App\Models\dataTypes');
+        return $this->belongsTo('App\Models\dataTypes');
     }
 
     protected $fillable = [
