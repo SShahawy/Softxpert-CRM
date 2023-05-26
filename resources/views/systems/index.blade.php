@@ -27,12 +27,15 @@
                                   <th scope="col" class="px-6 py-3">
                                       Show
                                   </th>
+                          @if(Auth::user()->role)
+
                                   <th scope="col" class="px-6 py-3">
                                       Edit
                                   </th>
                                   <th scope="col" class="px-6 py-3">
                                       Delete
                                   </th>
+                                  @endif
                               </tr>
                           </thead>
                           <tbody>
@@ -47,7 +50,6 @@
 
                                   </td>
                                   
-
                                   {{-- <td class="px-6 py-4">
                                       {{$system->system()->get('name')[0]->name}}
 
@@ -55,6 +57,8 @@
                                   <td class="px-6 py-4">
                                     <a href="{{ route('systems.show',$system->id) }}">Show</a>
                                 </td>
+                          @if(Auth::user()->role)
+
                                   <td class="px-6 py-4">
                                       <a href="{{ route('systems.edit',$system->id) }}">Edit</a>
                                   </td>
@@ -68,6 +72,7 @@
                                               value="Delete">
                                       </form>
                                   </td>
+                                  @endif
                               </tr>
                               @endforeach
                           </tbody>

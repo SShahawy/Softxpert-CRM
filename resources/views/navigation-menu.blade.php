@@ -89,7 +89,9 @@
                         </button>
                         <div class="dropdown-content">
                           <a href="/systems">R</a>
+                          @if(Auth::user()->role)
                           <a href="/systems/create">C</a>
+                          @endif
                         </div>
                 </div>
                 <div class="dropdown">
@@ -98,7 +100,10 @@
                     </button>
                     <div class="dropdown-content">
                       <a href="/entities">R</a>
+                      @if(Auth::user()->role)
+
                       <a href="/entities/create">C</a>
+                      @endif
                     </div>
             </div>
             <div class="dropdown">
@@ -107,7 +112,10 @@
                 </button>
                 <div class="dropdown-content">
                   <a href="/attributes">R</a>
+                  @if(Auth::user()->role)
+
                   <a href="/attributes/create">C</a>
+                  @endif
                 </div>
         </div>
             <div class="dropdown">
@@ -117,6 +125,14 @@
                 <div class="dropdown-content">
                   <a href="/entity_data">R</a>
                 </div>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn">Collected Data &DownArrow;
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="/collect">R</a>
+            </div>
         </div>
         
             </div>
@@ -171,7 +187,6 @@
                         </x-dropdown>
                     </div>
                 @endif
-
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-dropdown align="right" width="48">

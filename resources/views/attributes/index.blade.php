@@ -33,12 +33,15 @@
                                   <th scope="col" class="px-6 py-3">
                                       System
                                   </th>
+                          @if(Auth::user()->role)
+
                                   <th scope="col" class="px-6 py-3">
                                       Edit
                                   </th>
                                   <th scope="col" class="px-6 py-3">
                                       Delete
                                   </th>
+                                  @endif
                               </tr>
                           </thead>
                           <tbody>
@@ -64,6 +67,8 @@
                                     {{($systems->where('id',$attribute->entities()->get('system_id')[0]->system_id))->first()->name}}
                                     {{-- {{ $attribute->entities()->get('name')[0]->name }} --}}
                                 </td>
+                          @if(Auth::user()->role)
+
                                   <td class="px-6 py-4">
                                       <a href="{{ route('attributes.edit',$attribute->id) }}">Edit</a>
                                   </td>
@@ -77,6 +82,7 @@
                                               value="Delete">
                                       </form>
                                   </td>
+                                  @endif
                               </tr>
                               @endforeach
                           </tbody>

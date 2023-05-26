@@ -23,3 +23,10 @@ function dataTypeTranslator($type)
       break;
   }
 }
+function isRole($role)
+{
+  if ($role == '1')
+    return 'Admin';
+  else
+    return "Operator";
+}
