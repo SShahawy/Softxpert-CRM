@@ -25,51 +25,70 @@
                                       System
                                   </th>
                                   <th scope="col" class="px-6 py-3">
-                                      Show All Attributes
+                                      Entity
                                   </th>
-                          @if(Auth::user()->role)
+                                  <th scope="col" class="px-6 py-3">
+                                      Attribute
+                                  </th>
+                                  <th scope="col" class="px-6 py-3">
+                                      Attribute Data
+                                  </th>
+                                  <th scope="col" class="px-6 py-3">
+                                      Type
+                                  </th>
 
+
+                          @if(Auth::user()->role)
+                                  <th scope="col" class="px-6 py-3">
+                                      Edit
+                                  </th>
                                   <th scope="col" class="px-6 py-3">
                                       Delete
                                   </th>
-
                                   @endif
                               </tr>
                           </thead>
                           <tbody>
+                              @foreach ($data as $d)
+
                               <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                   <th scope="row"
                                       class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                      {{$system->id}}
+                                      {{$d->id}}
                                   </th>
                                   <td class="px-6 py-4">
-                                      {{$system->name}}
+                                      {{$d->name}}
 
                                   </td>
                                   <td class="px-6 py-4">
-                                    <a href="{{ route('systems.show',$system->id) }}">Show</a>
-                                </td>
+                                      {{$d->entity_name}}
 
+                                  </td>
+                                  <td class="px-6 py-4">
+                                      {{$d->att_name}}
+
+                                  </td>
+                                  <td class="px-6 py-4">
+                                      {{$d->data}}
+
+                                  </td>
+                                  <td class="px-6 py-4">
+                                      {{strtoupper(dataTypeTranslator($d->datatype_id))}}
+
+                                  </td>
+
+                                  
                                   {{-- <td class="px-6 py-4">
                                       {{$system->system()->get('name')[0]->name}}
 
                                   </td> --}}
-                          @if(Auth::user()->role)
                                   
-                                  <td class="px-6 py-4">
-                                      <form action="{{ route('systems.destroy',$system->id) }}" method="POST"
-                                          onsubmit="return confirm('{{ trans('Whyyyy are you deleting ? ') }}');"
-                                          style="display: inline-block;">
-                                          <input type="hidden" name="_method" value="DELETE">
-                                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                          <input type="submit" class="px-4 py-2 text-white bg-red-700 rounded"
-                                              value="Delete">
-                                      </form>
-                                  </td>
-                                  @endif
+
                               </tr>
+                              @endforeach
                           </tbody>
                       </table>
+                      {{ $data->links() }}
                   </div>
 
               </div>

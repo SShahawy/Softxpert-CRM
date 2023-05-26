@@ -31,6 +31,7 @@
                                   <th scope="col" class="px-6 py-3">
                                       Entity
                                   </th>
+                          @if(Auth::user()->role)
                                   
                                   <th scope="col" class="px-6 py-3">
                                       Edit
@@ -38,6 +39,7 @@
                                   <th scope="col" class="px-6 py-3">
                                       Delete
                                   </th>
+                                  @endif
                               </tr>
                           </thead>
                           <tbody>
@@ -58,6 +60,8 @@
                                   <td class="px-6 py-4">
                                     {{ $entity->entity()->get('name')[0]->name }}
                                   </td>
+                          @if(Auth::user()->role)
+
                                   <td class="px-6 py-4">
                                       <a href="{{ route('entities.edit',$entity->id) }}">Edit</a>
                                   </td>
@@ -71,6 +75,7 @@
                                               value="Delete">
                                       </form>
                                   </td>
+                                  @endif
                               </tr>
                               @endforeach
                           </tbody>

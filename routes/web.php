@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttributeController;
+use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\DataTypeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntityController;
@@ -35,10 +36,13 @@ Route::resource('entities', EntityController::class);
 // Route::resource('entity_data', EntityDataController::class);
 Route::resource('attributes', AttributeController::class);
 Route::resource('systems', SystemController::class);
+Route::resource('collect', CollectionController::class);
 Route::resource('entity_data', EntityDataController::class)->only('index', 'store');
 Route::get('entity_data/{id}', [EntityDataController::class, 'create'])->name('entity_data.create');
 
 Route::post('/load-entity-data-by-entity', [EntityDataController::class, 'loadEntityDataByEntity'])->name('loadEntityDataByEntity');
-
+Route::get('login', function () {
+    return view('auth.login');
+})->name('login');
 
 // Route::resource('datatypes', DataTypeController::class);
