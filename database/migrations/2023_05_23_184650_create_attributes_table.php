@@ -20,8 +20,8 @@ return new class extends Migration
 
             $table->unsignedBigInteger('datatype_id');
 
-            $table->foreign('entities_id')->references('id')->on('entities');
-            $table->foreign('datatype_id')->references('id')->on('data_types');
+            $table->foreign('entities_id')->references('id')->on('entities')->onDelete('cascade');;
+            $table->foreign('datatype_id')->references('id')->on('data_types')->onDelete('cascade');;
             $table->timestamps();
         });
     }
