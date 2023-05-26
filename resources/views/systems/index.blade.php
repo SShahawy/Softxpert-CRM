@@ -77,7 +77,8 @@
                               @endforeach
                           </tbody>
                       </table>
-                      {{ $systems->links() }}
+                      {{ $systems->links() }} 
+                      {{-- Pagination --}}
                   </div>
 
               </div>

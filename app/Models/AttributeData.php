@@ -11,7 +11,7 @@ class AttributeData extends Model
 
     public function attribute()
     {
-        return $this->belongsTo('App\Models\Attributes');
+        return $this->belongsTo('App\Models\Attributes'); // Attributes data belongs to Attribute
     }
     protected $fillable = [
         'data',

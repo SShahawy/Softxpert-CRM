@@ -63,8 +63,8 @@ class SystemController extends Controller
      */
     public function show($id)
     {
-        $system = $this->systemRepository->findSystem($id);
-        $attributes = Attributes::where('entities_id', $system->id)->get();
+        $system = $this->systemRepository->findSystem($id); // Finding system using ID
+        $attributes = Attributes::where('entities_id', $system->id)->get(); // Getting Attributes that has the same id as the searched system
         return view('systems.show', compact('system', 'attributes'));
     }
 

@@ -9,7 +9,7 @@ class Systems extends Model
 {
     public function entities()
     {
-        return $this->belongsTo('App\Models\Entities');
+        return $this->belongsTo('App\Models\Entities'); // Systems belongs to Entities
     }
 
     protected $fillable = [

@@ -13,16 +13,16 @@ class Entities extends Model
 
     public function entity_data()
     {
-        return $this->hasMany('App\Models\Entities');
+        return $this->hasMany('App\Models\EntityData'); // Entities has many entity data
     }
 
     public function system()
     {
-        return $this->belongsTo('App\Models\Systems');
+        return $this->belongsTo('App\Models\Systems'); // Entities belongs to Systems
     }
     public function attributes()
     {
-        return $this->hasMany('App\Models\Attributes');
+        return $this->hasMany('App\Models\Attributes'); // Entities has many attributes
     }
 
     protected $fillable = [

@@ -55,7 +55,8 @@
                                 {{-- @dd($attribute->entities()->get('system_id')[0]->system_id) --}}
                                   <td class="px-6 py-4">
                                     {{($systems->where('id',$attribute->entities()->get('system_id')[0]->system_id))->first()->name}}
-                                    {{-- {{ $attribute->entities()->get('name')[0]->name }} --}}
+                                    {{--Getting all systems here the checking the systems array for the id with the id associated with the
+    entity that is connected to the attribute shown , all to get the name of the system --}}
                                 </td>
                                   <td class="px-6 py-4">
                                       <a href="{{ route('attributes.edit',$attribute->id) }}">Edit</a>

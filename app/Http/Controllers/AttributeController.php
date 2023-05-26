@@ -24,7 +24,7 @@ class AttributeController extends Controller
      */
     public function index()
     {
-        $attributes =  $this->attributeRepository->allAttributes();
+        $attributes =  $this->attributeRepository->allAttributes(); // get all attributes from database using repository
         $systems = Systems::all();
 
         return view('attributes.index', compact('attributes', 'systems'));
@@ -35,7 +35,7 @@ class AttributeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create() // Getting all values that will benifit me in the creation
     {
         $systems = Systems::all();
         $entities = Entities::all();
@@ -56,7 +56,7 @@ class AttributeController extends Controller
             'name' => 'required|string|max:255',
             'entities_id' => 'required',
             'datatype_id' => 'required',
-        ]);
+        ]); //  Validation of the requests before storing
         $this->attributeRepository->storeAttribute($data);
 
         return redirect()->route('attributes.index')->with('message', 'Attribute Created Successfully');

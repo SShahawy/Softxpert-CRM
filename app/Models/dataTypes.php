@@ -10,7 +10,7 @@ class dataTypes extends Model
     use HasFactory;
     public function attribute()
     {
-        return $this->hasMany('App\Models\Attributes');
+        return $this->hasMany('App\Models\Attributes'); // dataTypes has many attributes
     }
     protected $fillable = [
         'type',
