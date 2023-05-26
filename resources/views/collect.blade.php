@@ -38,14 +38,7 @@
                                   </th>
 
 
-                          @if(Auth::user()->role)
-                                  <th scope="col" class="px-6 py-3">
-                                      Edit
-                                  </th>
-                                  <th scope="col" class="px-6 py-3">
-                                      Delete
-                                  </th>
-                                  @endif
+
                               </tr>
                           </thead>
                           <tbody>

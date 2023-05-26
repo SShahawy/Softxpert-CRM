@@ -19,9 +19,9 @@ return new class extends Migration
             $table->string('data');
             $table->unsignedBigInteger('entity_id');
             $table->unsignedBigInteger('attribute_id');
-            $table->foreign('entity_id')->references('id')->on('entities');
+            $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');;
 
-            $table->foreign('attribute_id')->references('id')->on('attributes');
+            $table->foreign('attribute_id')->references('id')->on('attributes')->onDelete('cascade');;
             $table->timestamps();
         });
     }

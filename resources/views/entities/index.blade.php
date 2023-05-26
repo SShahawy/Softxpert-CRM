@@ -56,7 +56,7 @@
 
                                   <td class="px-6 py-4">
                                       {{$entity->system()->get('name')[0]->name}}
-
+{{-- using relationship function to get name of the system connected to this entity --}}
                                   </td>
                           @if(Auth::user()->role)
 

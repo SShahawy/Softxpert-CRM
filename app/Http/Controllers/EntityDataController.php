@@ -53,7 +53,7 @@ class EntityDataController extends Controller
     {
 
         $data = [];
-        for ($i = 1; $i <= max(array_keys($request->data)); $i++) {
+        for ($i = 1; $i <= max(array_keys($request->data)); $i++) { // This for loop was needed as to check the type of the attribute and add the fields according to the type then adding all fields given in the array data
             // dd($request->data[$i]);
             $entitydt = new EntityData();
             $entitydt->data = $request->data[$i];

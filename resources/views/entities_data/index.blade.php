@@ -51,6 +51,8 @@
                                   </th>
                                   <td class="px-6 py-4">
                                     {{ $entity->attribute()->get('name')[0]->name }}
+{{-- using relationship function to get name of the attribute connected to this entity --}}
+
                                   </td>
                                   <td class="px-6 py-4">
                                     {{$entity->data}}
@@ -59,6 +61,8 @@
                                 
                                   <td class="px-6 py-4">
                                     {{ $entity->entity()->get('name')[0]->name }}
+{{-- using relationship function to get name of the entity connected to this entitydata --}}
+
                                   </td>
                           @if(Auth::user()->role)
 

@@ -11,15 +11,13 @@ class EntityData extends Model
 
     public function entity()
     {
-        return $this->belongsTo('App\Models\Entities');
+        return $this->belongsTo('App\Models\Entities'); // EntityData belongs to Entities
     }
     public function attribute()
     {
-        return $this->belongsTo('App\Models\Attributes');
+        return $this->belongsTo('App\Models\Attributes'); // EntityData belongs to Attributes
     }
 
-    // KAML b 7war eno hayban fl page deh kol el attributes el el mafrod td5alha zy maslan ytla3lak 
-    // input text ll name w input date ll birthday w keda y3ny , kol dah f page entity data creation w mn ba3do kolo sahl
 
     protected $fillable = [
         'data',

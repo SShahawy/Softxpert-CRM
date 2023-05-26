@@ -12,20 +12,20 @@ class Attributes extends Model
 
     public function entity_data()
     {
-        return $this->hasMany('App\Models\EntityData');
+        return $this->hasMany('App\Models\EntityData'); // Attributes has many entity data
     }
 
     public function entities()
     {
-        return $this->belongsTo('App\Models\Entities');
+        return $this->belongsTo('App\Models\Entities'); // Attributes belongs to entities
     }
     public function system()
     {
-        return $this->belongsTo('App\Models\Entities')->belongsTo('App\Models\Systems');
+        return $this->belongsTo('App\Models\Entities')->belongsTo('App\Models\Systems'); // Attributes belongs to entities that belongs to Systems
     }
     public function datatype()
     {
-        return $this->belongsTo('App\Models\dataTypes');
+        return $this->belongsTo('App\Models\dataTypes'); // Attributes belongs to dataTypes
     }
 
     protected $fillable = [

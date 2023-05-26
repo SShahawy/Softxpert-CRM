@@ -20,7 +20,7 @@ class CollectionController extends Controller
             ->join('attributes', 'entities.id', '=', 'attributes.entities_id')
             ->join('entity_data', 'attributes.entities_id', '=', 'entity_data.entity_id')
             ->selectRaw('*,attributes.name as att_name, entities.name as entity_name,systems.name as name')
-            ->paginate(15);
+            ->paginate(15); // Join all tables to get the collected connected data
         // dd($data);
 
         return view('collect', compact('data'));
